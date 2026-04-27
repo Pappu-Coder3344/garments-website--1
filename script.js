@@ -324,3 +324,53 @@ window.addEventListener("mousemove", (event) => {
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
+/* Play Music When User Scrolls */
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+let musicStarted = false;
+
+function setMusicButtonPlaying() {
+  musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  musicBtn.classList.add("playing");
+}
+
+function setMusicButtonMuted() {
+  musicBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+  musicBtn.classList.remove("playing");
+}
+
+function playMusicOnScroll() {
+  if (!musicStarted) {
+    bgMusic.volume = 0.35;
+
+    bgMusic.play()
+      .then(() => {
+        musicStarted = true;
+        setMusicButtonPlaying();
+
+        window.removeEventListener("scroll", playMusicOnScroll);
+      })
+      .catch(() => {
+        setMusicButtonMuted();
+      });
+  }
+}
+
+window.addEventListener("scroll", playMusicOnScroll, { passive: true });
+
+musicBtn.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play()
+      .then(() => {
+        musicStarted = true;
+        setMusicButtonPlaying();
+      })
+      .catch(() => {
+        setMusicButtonMuted();
+      });
+  } else {
+    bgMusic.pause();
+    setMusicButtonMuted();
+  }
+});
