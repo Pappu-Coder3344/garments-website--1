@@ -1331,3 +1331,41 @@ textarea {
     padding: 12px 14px;
   }
 }
+.music-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff4f7b, #7c3cff);
+  box-shadow: 0 15px 40px rgba(255, 79, 123, 0.35);
+  cursor: pointer;
+  z-index: 9999;
+  font-size: 1.15rem;
+  transition: 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.music-btn.playing {
+  animation: musicPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 79, 123, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 18px rgba(255, 79, 123, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 79, 123, 0);
+  }
+}
