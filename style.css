@@ -1369,3 +1369,18 @@ textarea {
     box-shadow: 0 0 0 0 rgba(255, 79, 123, 0);
   }
 }
+.music-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff4f7b, #7c3cff);
+  box-shadow: 0 15px 40px rgba(255, 79, 123, 0.35);
+  cursor: pointer;
+  z-index: 9999;
+  font-size: 1.15rem;
+}
