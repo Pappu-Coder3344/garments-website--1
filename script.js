@@ -374,3 +374,4 @@ musicBtn.addEventListener("click", () => {
     setMusicButtonMuted();
   }
 });
+musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
