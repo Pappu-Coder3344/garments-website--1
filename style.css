@@ -1111,8 +1111,9 @@ textarea {
   }
 }
 
+
 /* ================================
-   Responsive Design
+   Responsive Design - Fixed
    ================================ */
 
 @media (max-width: 1100px) {
@@ -1125,19 +1126,71 @@ textarea {
     display: block;
   }
 
-  .hero,
-  .about,
-  .quality,
-  .contact-wrapper {
-    grid-template-columns: 1fr;
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding: 130px 5% 70px;
+    max-width: 100%;
   }
 
-  .hero {
-    padding-top: 135px;
+  .hero h1 {
+    font-size: clamp(2.7rem, 5vw, 4.6rem);
+    line-height: 1;
+  }
+
+  .hero-description {
+    max-width: 520px;
+    font-size: 0.98rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .hero-stats div {
+    padding: 18px 14px;
   }
 
   .hero-visual {
     min-height: 560px;
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-image-card {
+    width: 78%;
+    right: 0;
+    left: auto;
+    bottom: 45px;
+  }
+
+  .hero-image-card img {
+    height: 420px;
+    object-fit: cover;
+  }
+
+  .garment-3d-box {
+    left: 4%;
+    top: 180px;
+  }
+
+  .card-top {
+    top: 95px;
+    right: 8%;
+    left: auto;
+  }
+
+  .card-bottom {
+    bottom: 105px;
+    left: 0;
+    right: auto;
+  }
+
+  .about,
+  .quality,
+  .contact-wrapper {
+    grid-template-columns: 1fr;
   }
 
   .product-grid {
@@ -1149,6 +1202,9 @@ textarea {
     gap: 42px;
   }
 }
+
+/* Important: 900px e hero ke 1 column korben na.
+   Tai old @media (max-width: 900px) block remove kora hoyeche. */
 
 @media (max-width: 760px) {
   .header {
@@ -1169,6 +1225,7 @@ textarea {
   }
 
   .hero {
+    grid-template-columns: 1fr;
     padding: 120px 5% 60px;
     gap: 36px;
   }
@@ -1192,6 +1249,8 @@ textarea {
   .hero-image-card {
     width: 88%;
     right: 0;
+    left: auto;
+    bottom: 35px;
   }
 
   .hero-image-card img {
@@ -1369,18 +1428,204 @@ textarea {
     box-shadow: 0 0 0 0 rgba(255, 79, 123, 0);
   }
 }
-.music-btn {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 56px;
-  height: 56px;
-  border: none;
-  border-radius: 50%;
-  color: #ffffff;
-  background: linear-gradient(135deg, #ff4f7b, #7c3cff);
-  box-shadow: 0 15px 40px rgba(255, 79, 123, 0.35);
-  cursor: pointer;
-  z-index: 9999;
-  font-size: 1.15rem;
+/* ================================
+   FINAL HERO FIX - Paste at very bottom
+   ================================ */
+
+@media (min-width: 761px) {
+  .hero {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr) !important;
+    align-items: center !important;
+    gap: 40px !important;
+    max-width: 1320px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-content {
+    grid-column: 1 / 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-visual {
+    grid-column: 2 / 3 !important;
+    width: 100% !important;
+    min-height: 560px !important;
+    position: relative !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .hero-image-card {
+    position: absolute !important;
+    width: 78% !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: 40px !important;
+  }
+
+  .hero-image-card img {
+    height: 430px !important;
+    object-fit: cover !important;
+  }
+
+  .garment-3d-box {
+    position: absolute !important;
+    left: 4% !important;
+    right: auto !important;
+    top: 165px !important;
+  }
+
+  .card-top {
+    position: absolute !important;
+    top: 85px !important;
+    right: 8% !important;
+    left: auto !important;
+  }
+
+  .card-bottom {
+    position: absolute !important;
+    bottom: 90px !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+/* ================================
+   Hero Visual Size Increase
+   ================================ */
+
+@media (min-width: 1101px) {
+  .hero {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 40px;
+  }
+
+  .hero-visual {
+    min-height: 650px;
+  }
+
+  .hero-image-card {
+    width: 92%;
+    right: -25px;
+    bottom: 55px;
+  }
+
+  .hero-image-card img {
+    height: 540px;
+  }
+
+  .garment-3d-box {
+    width: 190px;
+    height: 190px;
+    top: 210px;
+    left: 4%;
+  }
+
+  .cube,
+  .cube-face {
+    width: 190px;
+    height: 190px;
+  }
+
+  .front {
+    transform: translateZ(95px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(95px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(95px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(95px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(95px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(95px);
+  }
+
+  .cube-face i {
+    font-size: 2.6rem;
+  }
+
+  .card-top {
+    top: 125px;
+    right: 7%;
+  }
+
+  .card-bottom {
+    bottom: 140px;
+    left: 6%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero-image-card {
+    width: 92% !important;
+    right: -10px !important;
+  }
+
+  .hero-image-card img {
+    height: 480px !important;
+  }
+
+  .garment-3d-box {
+    width: 165px !important;
+    height: 165px !important;
+    left: 0 !important;
+  }
+  .hero-image-card {
+  width: 92%;
+}
+
+.hero-image-card img {
+  height: 540px;
+}
+
+  .cube,
+  .cube-face {
+    width: 165px !important;
+    height: 165px !important;
+  }
+
+  .front {
+    transform: translateZ(82.5px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(82.5px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(82.5px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(82.5px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(82.5px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(82.5px);
+  }
+}
+@media (min-width: 1101px) {
+  .hero {
+    max-width: 1450px;
+  }
+
+  .hero-image-card {
+    right: -60px;
+  }
 }
